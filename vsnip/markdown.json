@@ -1,0 +1,16 @@
+{
+  "codeblock": {
+    "prefix": ["codeblock"],
+    "body": [
+      "<details>",
+      "<summary>Code</summary>",
+      "",
+      "```cpp",
+      "$0",
+      "```",
+      "",
+      "</details>"
+    ],
+    "description": "Foldable code block"
+  }
+}
