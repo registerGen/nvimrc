@@ -4,6 +4,7 @@ opt.background = 'dark'
 opt.backup = false
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 opt.cursorline = true
+opt.cmdheight = 0
 opt.expandtab = true
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.foldlevel = 100000
