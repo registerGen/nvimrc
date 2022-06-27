@@ -3,7 +3,7 @@
     "prefix": ["codeblock"],
     "body": [
       "<details>",
-      "<summary>Code</summary>",
+      "<summary><b>代码</b></summary>",
       "",
       "```cpp",
       "$0",
