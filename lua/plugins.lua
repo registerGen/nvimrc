@@ -333,7 +333,7 @@ require('packer').startup(function(use)
     requires = { 'tpope/vim-repeat' },
     config = function()
       require('leap').set_default_keymaps()
-    end
+    end,
   }
 
   -- Code Runner {{{1
@@ -396,7 +396,7 @@ require('packer').startup(function(use)
     'cappyzawa/trim.nvim',
     config = function()
       require('trim').setup()
-    end
+    end,
   }
 
   -- Keybinding {{{1
