@@ -263,6 +263,12 @@ require('packer').startup(function(use)
         diagnostics = {
           enable = true,
         },
+        renderer = {
+          highlight_git = true,
+          indent_markers = {
+            enable = true,
+          },
+        },
       }
 
       require('keymaps').register_prefix 'nvimtree'
