@@ -19,7 +19,7 @@ M.config = function()
       vim.fn['sonokai#highlight']('WinBarNC', palette.grey, palette.bg3, 'bold')
     end,
   })
-  vim.cmd 'colors sonokai'
+  -- vim.cmd 'colors sonokai'
 end
 
 return M
