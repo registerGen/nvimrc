@@ -31,3 +31,28 @@ opt.wrap = false
 vim.g.tex_flavor = 'latex'
 vim.g.do_filetype_lua = 1
 vim.g.did_load_filetypes = 0
+
+local disabled_builtins = {
+  '2html_plugin',
+  'getscript',
+  'getscriptPlugin',
+  'gzip',
+  'logipat',
+  'man',
+  'matchit',
+  'netrwFileHandlers',
+  'netrwPlugin',
+  'netrwSettings',
+  'rrhelper',
+  'spellfile_plugin',
+  'tar',
+  'tarPlugin',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
+}
+
+for _, plugin in ipairs(disabled_builtins) do
+  vim.g['loaded_' .. plugin] = 1
+end
