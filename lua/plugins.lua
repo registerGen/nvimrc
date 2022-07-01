@@ -18,23 +18,7 @@ require('packer').startup(function(use)
   use {
     'sainnhe/sonokai',
     config = function()
-      vim.g.sonokai_enable_italic = 1
-      vim.g.sonokai_diagnostic_text_highlight = 1
-      vim.g.sonokai_diagnostic_virtual_text = 'colored'
-      vim.g.sonokai_disable_terminal_colors = 1
-
-      local id = vim.api.nvim_create_augroup('Sonokai', { clear = true })
-      vim.api.nvim_create_autocmd('ColorScheme', {
-        group = id,
-        pattern = 'sonokai',
-        callback = function()
-          local palette = vim.fn['sonokai#get_palette']('default', vim.empty_dict())
-          vim.fn['sonokai#highlight']('TSParameter', palette.orange, palette.none, 'italic')
-          vim.fn['sonokai#highlight']('TSParameterReference', palette.orange, palette.none, 'italic')
-          vim.fn['sonokai#highlight']('CmpItemAbbrDeprecated', palette.grey, palette.none)
-        end,
-      })
-      vim.cmd 'colors sonokai'
+      require('plugincfg.sonokai').config()
     end,
   }
 

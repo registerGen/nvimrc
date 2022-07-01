@@ -34,9 +34,6 @@ M.winbar = function()
   local symbols = aerial.get_location(true)
   local symbol_path = format_symbols(symbols, nil, ' ❯ ', true)
 
-  local palette = vim.fn['sonokai#get_palette']('default', vim.empty_dict())
-  vim.api.nvim_set_hl(0, 'WinBar', { bg = palette.bg3[1], bold = true, default = false })
-
   return '%F ❯ ' .. (symbol_path == '' and '...' or symbol_path)
 end
 
