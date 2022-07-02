@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-  local onedarkpro = require('onedarkpro')
+  local onedarkpro = require 'onedarkpro'
   onedarkpro.setup {
     options = {
       bold = true,

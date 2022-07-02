@@ -25,7 +25,7 @@ require('packer').startup(function(use)
     'olimorris/onedarkpro.nvim',
     config = function()
       require('plugincfg.onedarkpro').config()
-    end
+    end,
   }
 
   -- LSP {{{1
