@@ -33,6 +33,14 @@ local server_config = {
   sumneko_lua = require('lua-dev').setup {
     lspconfig = {
       cmd = { vim.fn.stdpath 'data' .. '/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server' },
+      settings = {
+        Lua = {
+          completion = {
+            showWord = 'Disable',
+            workSpaceWord = false,
+          }
+        }
+      }
     },
   },
   texlab = {
