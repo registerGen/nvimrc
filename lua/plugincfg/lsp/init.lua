@@ -38,9 +38,9 @@ local server_config = {
           completion = {
             showWord = 'Disable',
             workSpaceWord = false,
-          }
-        }
-      }
+          },
+        },
+      },
     },
   },
   texlab = {
