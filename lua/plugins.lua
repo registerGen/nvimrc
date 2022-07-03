@@ -254,7 +254,15 @@ require('packer').startup(function(use)
         show_current_context = true,
         show_current_context_start = true,
         context_char = '▎',
-        filetype_exclude = { 'lspinfo', 'packer', 'checkhealth', 'help', 'lsp-installer', 'dashboard', '' },
+        filetype_exclude = {
+          'lspinfo',
+          'packer',
+          'checkhealth',
+          'help',
+          'lsp-installer',
+          'dashboard',
+          '',
+        },
         buftype_exclude = { 'nofile', 'terminal' },
       }
     end,
@@ -319,7 +327,9 @@ require('packer').startup(function(use)
       require('code_runner').setup {
         startinsert = true,
         filetype = {
-          cpp = 'cd $dir && ' .. vim.fn.stdpath 'config' .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+          cpp = 'cd $dir && '
+            .. vim.fn.stdpath 'config'
+            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
         },
@@ -382,7 +392,7 @@ require('packer').startup(function(use)
     end,
   }
 
-  --- }}}1
+  -- }}}1
 end)
 
 -- vim:fdm=marker:fdl=0

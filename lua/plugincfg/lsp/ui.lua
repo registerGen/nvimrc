@@ -1,11 +1,14 @@
 local M = {}
 
 M.on_attach = function(_, bufnr)
-  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    update_in_insert = true,
-    virtual_text = { spacing = 4, prefix = '●' },
-    severity_sort = true,
-  })
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      update_in_insert = true,
+      virtual_text = { spacing = 4, prefix = '●' },
+      severity_sort = true,
+    }
+  )
 
   local signs = { Error = '', Warn = '', Info = '', Hint = '' }
   for type, icon in pairs(signs) do
@@ -114,11 +117,15 @@ M.on_attach = function(_, bufnr)
         hide_from_history = false,
       })
     elseif val.kind == 'end' and notif_data then
-      notif_data.notification = vim.notify(val.message and format_message(val.message) or 'Complete', 'info', {
-        icon = '',
-        replace = notif_data.notification,
-        timeout = 3000,
-      })
+      notif_data.notification = vim.notify(
+        val.message and format_message(val.message) or 'Complete',
+        'info',
+        {
+          icon = '',
+          replace = notif_data.notification,
+          timeout = 3000,
+        }
+      )
 
       notif_data.spinner = nil
     end

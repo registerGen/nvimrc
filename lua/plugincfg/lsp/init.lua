@@ -5,8 +5,22 @@ local function on_attach(client, bufnr)
   local rk = require('keymaps').register_keymap
   rk('lsp', 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover doc', bufnr)
   rk('lsp', 'n', 'c', '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code action', bufnr)
-  rk('lsp', 'n', 'D', '<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>', 'Show diagnostics', bufnr)
-  rk('lsp', 'n', 'd', '<cmd>lua require(\'goto-preview\').goto_preview_definition()<CR>', 'Go to definition', bufnr)
+  rk(
+    'lsp',
+    'n',
+    'D',
+    '<cmd>lua vim.diagnostic.open_float(nil, { focus = false })<CR>',
+    'Show diagnostics',
+    bufnr
+  )
+  rk(
+    'lsp',
+    'n',
+    'd',
+    '<cmd>lua require(\'goto-preview\').goto_preview_definition()<CR>',
+    'Go to definition',
+    bufnr
+  )
   rk('lsp', 'n', 'f', '<cmd>lua vim.lsp.buf.format({ async = false })<CR>', 'Formatting', bufnr)
   rk(
     'lsp',
@@ -16,7 +30,14 @@ local function on_attach(client, bufnr)
     'Go to implementation',
     bufnr
   )
-  rk('lsp', 'n', 'r', '<cmd>lua require(\'goto-preview\').goto_preview_references()<CR>', 'Go to references', bufnr)
+  rk(
+    'lsp',
+    'n',
+    'r',
+    '<cmd>lua require(\'goto-preview\').goto_preview_references()<CR>',
+    'Go to references',
+    bufnr
+  )
   rk('lsp', 'n', 'n', '<cmd>lua vim.lsp.buf.rename()<CR>', 'Symbol renaming', bufnr)
 
   require('plugincfg.lsp.ui').on_attach(client, bufnr)
@@ -32,7 +53,10 @@ local server_config = {
   jedi_language_server = {},
   sumneko_lua = require('lua-dev').setup {
     lspconfig = {
-      cmd = { vim.fn.stdpath 'data' .. '/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server' },
+      cmd = {
+        vim.fn.stdpath 'data'
+          .. '/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server',
+      },
       settings = {
         Lua = {
           completion = {
@@ -53,7 +77,9 @@ local server_config = {
 M.config = function()
   for server, config in pairs(server_config) do
     require('lspconfig')[server].setup(vim.tbl_deep_extend('force', {}, {
-      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      capabilities = require('cmp_nvim_lsp').update_capabilities(
+        vim.lsp.protocol.make_client_capabilities()
+      ),
       on_attach = on_attach,
     }, config))
   end
