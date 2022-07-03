@@ -26,6 +26,11 @@ M.config = function()
         maxwidth = 60,
       },
     },
+    window = {
+      documentation = {
+        border = 'rounded',
+      },
+    },
   }
 
   for _, v in ipairs { '/', '?' } do
