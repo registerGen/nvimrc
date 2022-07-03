@@ -46,7 +46,7 @@ M.comment_config = function()
     return
   end
 
-  for index = 1, vim.fn.line('$') do
+  for index = 1, vim.fn.line '$' do
     local content = vim.fn.getline(index)
     vim.cmd(':' .. tostring(index))
     -- config = function() .. end
@@ -64,7 +64,7 @@ M.uncomment_config = function()
   end
 
   local last = false
-  for index = 1, vim.fn.line('$') do
+  for index = 1, vim.fn.line '$' do
     local content = vim.fn.getline(index)
     vim.cmd(':' .. tostring(index))
     -- config = function() .. end
