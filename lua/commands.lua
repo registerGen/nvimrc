@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require 'utils'
 
 -- Command for utils/(un)comment_config()
 local commented = false
