@@ -41,7 +41,9 @@ require('packer').startup(function(use)
   }
   use {
     'neovim/nvim-lspconfig',
-    config = require('plugincfg.lsp').config(),
+    config = function()
+      require('plugincfg.lsp').config()
+    end,
   }
   use {
     'kosayoda/nvim-lightbulb',
@@ -79,7 +81,9 @@ require('packer').startup(function(use)
   -- Completion {{{1
   use {
     'hrsh7th/nvim-cmp',
-    config = require('plugincfg.cmp').config(),
+    config = function()
+      require('plugincfg.cmp').config()
+    end,
   }
   use {
     'hrsh7th/cmp-nvim-lsp',
@@ -114,7 +118,9 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = require('plugincfg.treesitter').config(),
+    config = function()
+      require('plugincfg.treesitter').config()
+    end,
   }
   use {
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -225,14 +231,18 @@ require('packer').startup(function(use)
   use {
     'akinsho/bufferline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = require('plugincfg.bufferline').config(),
+    config = function()
+      require('plugincfg.bufferline').config()
+    end,
   }
 
   -- Statusline {{{1
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = require('plugincfg.lualine').config(),
+    config = function()
+      require('plugincfg.lualine').config()
+    end,
   }
 
   -- Startup {{{1
