@@ -218,7 +218,7 @@ require('packer').startup(function(use)
   use 'antoinemadec/FixCursorHold.nvim'
 
   -- Neovim Lua Development {{{1
-  use 'folke/lua-dev.nvim'
+  use '~/dev/lua-dev.nvim'
   use 'milisims/nvim-luaref'
 
   -- Tabline {{{1
