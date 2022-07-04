@@ -12,7 +12,7 @@ M.config = function()
       window_unfocussed_color = true,
     },
   }
-  onedarkpro.load()
+  -- onedarkpro.load()
 end
 
 return M
