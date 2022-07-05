@@ -2,6 +2,14 @@ local M = {}
 
 local aerial = require 'aerial'
 
+M.tobool = function(x)
+  if x ~= 0 then
+    return true
+  else
+    return false
+  end
+end
+
 -- Winbar
 
 -- Format the list representing the symbol path
@@ -42,6 +50,10 @@ end
 -- Utility function to comment/uncomment config = ... in plugins.lua
 M.comment_config = function()
   local plugins_path = vim.fn.stdpath 'config' .. '/lua/plugins.lua'
+  if not M.tobool(vim.fn.filereadable(plugins_path)) then
+    vim.notify('plugins.lua not found', vim.log.levels.ERROR, { title = 'utils.lua::comment_config' })
+    return
+  end
   if vim.fn.expand '%:p' ~= plugins_path then
     return
   end
@@ -59,6 +71,10 @@ end
 
 M.uncomment_config = function()
   local plugins_path = vim.fn.stdpath 'config' .. '/lua/plugins.lua'
+  if not M.tobool(vim.fn.filereadable(plugins_path)) then
+    vim.notify('plugins.lua not found', vim.log.levels.ERROR, { title = 'utils.lua::comment_config' })
+    return
+  end
   if vim.fn.expand '%:p' ~= plugins_path then
     return
   end
