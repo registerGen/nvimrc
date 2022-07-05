@@ -51,7 +51,11 @@ end
 M.comment_config = function()
   local plugins_path = vim.fn.stdpath 'config' .. '/lua/plugins.lua'
   if not M.tobool(vim.fn.filereadable(plugins_path)) then
-    vim.notify('plugins.lua not found', vim.log.levels.ERROR, { title = 'utils.lua::comment_config' })
+    vim.notify(
+      'plugins.lua not found',
+      vim.log.levels.ERROR,
+      { title = 'utils.lua::comment_config' }
+    )
     return
   end
   if vim.fn.expand '%:p' ~= plugins_path then
@@ -72,7 +76,11 @@ end
 M.uncomment_config = function()
   local plugins_path = vim.fn.stdpath 'config' .. '/lua/plugins.lua'
   if not M.tobool(vim.fn.filereadable(plugins_path)) then
-    vim.notify('plugins.lua not found', vim.log.levels.ERROR, { title = 'utils.lua::comment_config' })
+    vim.notify(
+      'plugins.lua not found',
+      vim.log.levels.ERROR,
+      { title = 'utils.lua::comment_config' }
+    )
     return
   end
   if vim.fn.expand '%:p' ~= plugins_path then
