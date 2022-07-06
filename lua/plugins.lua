@@ -159,28 +159,28 @@ require('packer').startup(function(use)
       vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
 
       vim.api.nvim_set_keymap(
-      'i',
-      '<C-j>',
-      'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-      { expr = true }
+        'i',
+        '<C-j>',
+        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
+        { expr = true }
       )
       vim.api.nvim_set_keymap(
-      's',
-      '<C-j>',
-      'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-      { expr = true }
+        's',
+        '<C-j>',
+        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
+        { expr = true }
       )
       vim.api.nvim_set_keymap(
-      'i',
-      '<C-k>',
-      'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-      { expr = true }
+        'i',
+        '<C-k>',
+        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
+        { expr = true }
       )
       vim.api.nvim_set_keymap(
-      's',
-      '<C-k>',
-      'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-      { expr = true }
+        's',
+        '<C-k>',
+        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
+        { expr = true }
       )
     end,
   }
@@ -338,8 +338,8 @@ require('packer').startup(function(use)
         startinsert = true,
         filetype = {
           cpp = 'cd $dir && '
-          .. vim.fn.stdpath 'config'
-          .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+            .. vim.fn.stdpath 'config'
+            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
         },
