@@ -1,6 +1,6 @@
 local utils = require 'utils'
 
--- Command for utils/(un)comment_config()
+-- Command for utils::(un)comment_config()
 local commented = false
 local function comment_config_toggle()
   if commented == false then

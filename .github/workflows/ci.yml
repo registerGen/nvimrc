@@ -6,7 +6,7 @@ jobs:
     name: Formatting
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Format with StyLua
         uses: JohnnyMorganz/stylua-action@1.0.0
         with:
@@ -15,10 +15,10 @@ jobs:
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "chore: format with stylua"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          commit_message: "chore: format with stylua (GitHub Action)"
+          commit_user_name: "registerGen"
+          commit_user_email: "registergen@163.com"
+          commit_author: "registerGen <registergen@163.com>"
 
   scanning:
     name: GitGuardian scan
