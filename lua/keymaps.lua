@@ -1,3 +1,5 @@
+-- stylua: ignore start
+
 local u = require 'utils'
 
 vim.g.mapleader = ' '
@@ -15,3 +17,5 @@ u.nmap('n', function() vim.lsp.buf.rename() end, { desc = 'Rename' })
 u.nmap('f', function() vim.lsp.buf.format { async = true } end, { desc = 'Format' })
 u.nmap('D', function() vim.diagnostic.open_float { focus = false, scope = 'l' } end, { desc = 'Show line diagnostics' })
 u.nmap('<S-D>', function() vim.diagnostic.open_float { focus = false, scope = 'b' } end, { desc = 'Show buffer diagnostics' })
+
+-- stylua: ignore end
