@@ -21,7 +21,7 @@ local function on_attach(client, bufnr)
     'Go to definition',
     bufnr
   )
-  rk('lsp', 'n', 'f', '<cmd>lua vim.lsp.buf.format({ async = false })<CR>', 'Formatting', bufnr)
+  rk('lsp', 'n', 'f', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', 'Formatting', bufnr)
   rk(
     'lsp',
     'n',
