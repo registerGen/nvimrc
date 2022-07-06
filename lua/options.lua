@@ -2,6 +2,7 @@ local opt = vim.opt
 
 opt.background = 'dark'
 opt.backup = false
+opt.cmdheight = 0
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
 opt.cursorline = true
 opt.expandtab = true

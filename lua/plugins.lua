@@ -159,28 +159,28 @@ require('packer').startup(function(use)
       vim.g.vsnip_snippet_dir = vim.fn.stdpath 'config' .. '/vsnip'
 
       vim.api.nvim_set_keymap(
-        'i',
-        '<C-j>',
-        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-        { expr = true }
+      'i',
+      '<C-j>',
+      'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
+      { expr = true }
       )
       vim.api.nvim_set_keymap(
-        's',
-        '<C-j>',
-        'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
-        { expr = true }
+      's',
+      '<C-j>',
+      'vsnip#jumpable(1)  ? \'<Plug>(vsnip-jump-next)\' : \'<C-j>\'',
+      { expr = true }
       )
       vim.api.nvim_set_keymap(
-        'i',
-        '<C-k>',
-        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-        { expr = true }
+      'i',
+      '<C-k>',
+      'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
+      { expr = true }
       )
       vim.api.nvim_set_keymap(
-        's',
-        '<C-k>',
-        'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
-        { expr = true }
+      's',
+      '<C-k>',
+      'vsnip#jumpable(-1) ? \'<Plug>(vsnip-jump-prev)\' : \'<C-j>\'',
+      { expr = true }
       )
     end,
   }
@@ -338,8 +338,8 @@ require('packer').startup(function(use)
         startinsert = true,
         filetype = {
           cpp = 'cd $dir && '
-            .. vim.fn.stdpath 'config'
-            .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
+          .. vim.fn.stdpath 'config'
+          .. '/utils/run_cpp.sh $fileName $fileNameWithoutExt',
           python = 'cd $dir && python $fileName',
           tex = 'cd $dir && latexmk $fileName && latexmk -c && evince -f $fileNameWithoutExt.pdf',
         },
@@ -399,6 +399,22 @@ require('packer').startup(function(use)
     'folke/which-key.nvim',
     config = function()
       require('which-key').setup()
+
+      -- TODO: Remove this when #301 is merged
+      local wk_view = require 'which-key.view'
+      wk_view.hide = function()
+        vim.api.nvim_echo({ { '' } }, false, {})
+        vim.cmd 'redraw'
+        wk_view.hide_cursor()
+        if wk_view.buf and vim.api.nvim_buf_is_valid(wk_view.buf) then
+          vim.api.nvim_buf_delete(wk_view.buf, { force = true })
+          wk_view.buf = nil
+        end
+        if wk_view.win and vim.api.nvim_win_is_valid(wk_view.win) then
+          vim.api.nvim_win_close(wk_view.win, { force = true })
+          wk_view.win = nil
+        end
+      end
     end,
   }
 
