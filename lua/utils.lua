@@ -116,7 +116,7 @@ end
 local function create_map_func(mode)
   return function(lhs, rhs, opts)
     opts = vim.tbl_deep_extend('keep', {}, { noremap = true, silent = true }, opts)
-    api.nvim_set_keymap(mode, map_prefix ..lhs, rhs, opts)
+    api.nvim_set_keymap(mode, map_prefix .. lhs, rhs, opts)
   end
 end
 
@@ -127,9 +127,9 @@ local function create_buf_map_func(mode)
   end
 end
 
-M.nmap = create_map_func('n')
-M.imap = create_map_func('i')
-M.smap = create_map_func('s')
-M.nbmap = create_buf_map_func('n')
+M.nmap = create_map_func 'n'
+M.imap = create_map_func 'i'
+M.smap = create_map_func 's'
+M.nbmap = create_buf_map_func 'n'
 
 return M
