@@ -1,6 +1,5 @@
 local M = {}
 
-local api = vim.api
 local aerial = require 'aerial'
 
 M.tobool = function(x)
@@ -116,20 +115,14 @@ end
 local function create_map_func(mode)
   return function(lhs, rhs, opts)
     opts = vim.tbl_deep_extend('keep', {}, { noremap = true, silent = true }, opts)
-    api.nvim_set_keymap(mode, map_prefix .. lhs, rhs, opts)
-  end
-end
-
-local function create_buf_map_func(mode)
-  return function(bufnr, lhs, rhs, opts)
-    opts = vim.tbl_deep_extend('keep', {}, { noremap = true, silent = true }, opts)
-    api.nvim_buf_set_keymap(bufnr, mode, map_prefix .. lhs, rhs, opts)
+    vim.keymap.set(mode, map_prefix .. lhs, rhs, opts)
   end
 end
 
 M.nmap = create_map_func 'n'
 M.imap = create_map_func 'i'
 M.smap = create_map_func 's'
-M.nbmap = create_buf_map_func 'n'
+M.vmap = create_map_func 'v'
+M.omap = create_map_func 'o'
 
 return M
