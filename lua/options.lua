@@ -30,8 +30,6 @@ opt.winbar = '%{%v:lua.require(\'utils\').winbar()%}'
 opt.wrap = false
 
 vim.g.tex_flavor = 'latex'
-vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
 
 local disabled_builtins = {
   '2html_plugin',
