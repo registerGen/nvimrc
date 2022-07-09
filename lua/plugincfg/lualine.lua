@@ -1,7 +1,8 @@
 local M = {}
 
 M.config = function()
-  local palette = vim.fn['sonokai#get_palette']('default', vim.empty_dict())
+  local configuration = vim.fn['sonokai#get_configuration']()
+  local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
 
   require('lualine').setup {
     options = {
