@@ -14,7 +14,8 @@ M.config = function()
     pattern = 'sonokai',
     callback = function()
       local configuration = vim.fn['sonokai#get_configuration']()
-      local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
+      local palette =
+        vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
       vim.fn['sonokai#highlight']('TSParameter', palette.orange, palette.none, 'italic')
       vim.fn['sonokai#highlight']('TSParameterReference', palette.orange, palette.none, 'italic')
       vim.fn['sonokai#highlight']('CmpItemAbbrDeprecated', palette.grey, palette.none)
