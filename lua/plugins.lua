@@ -195,6 +195,7 @@ require('packer').startup(function(use)
     config = function()
       require('telescope').load_extension 'fzf'
       require('telescope').load_extension 'aerial'
+      require('telescope').load_extension 'notify'
     end,
   }
 
