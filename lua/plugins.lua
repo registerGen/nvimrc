@@ -310,7 +310,13 @@ require('packer').startup(function(use)
       require('gitsigns').setup()
     end,
   }
-  use 'f-person/git-blame.nvim'
+  use {
+    'APZelos/blamer.nvim',
+    config = function()
+      vim.g.blamer_enabled = 1
+      vim.g.blamer_delay = 200
+    end,
+  }
 
   -- Comment {{{1
   use {
