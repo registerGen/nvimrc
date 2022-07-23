@@ -1,4 +1,5 @@
 local M = {}
+
 M.config = function()
   local configuration = vim.fn['sonokai#get_configuration']()
   local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
