@@ -1,5 +1,4 @@
 local M = {}
-
 M.config = function()
   local configuration = vim.fn['sonokai#get_configuration']()
   local palette = vim.fn['sonokai#get_palette'](configuration.style, configuration.colors_override)
@@ -26,6 +25,14 @@ M.config = function()
         },
       },
       lualine_x = { 'filesize', 'encoding', 'fileformat', 'filetype' },
+    },
+    winbar = {
+      lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
+      lualine_c = { { 'aerial', sep = ' ❯ ' } },
+      lualine_z = { '%{strftime(\'%c\')}' }
+    },
+    inactive_winbar = {
+      lualine_b = { { 'filetype', icon_only = true }, { 'filename', path = 3 } },
     },
     extensions = { 'nvim-tree', 'fugitive', 'aerial' },
   }

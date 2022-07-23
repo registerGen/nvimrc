@@ -26,7 +26,6 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.timeoutlen = 500
 opt.updatetime = 500
-opt.winbar = '%{%v:lua.require(\'utils\').winbar()%}'
 opt.wrap = false
 
 vim.g.tex_flavor = 'latex'
